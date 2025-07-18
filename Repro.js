@@ -104,7 +104,7 @@ export function Repro() {
   }, [db]);
 
   return (
-    <View>
+    <View style={styles.container}>
       <Button
         onPress={() => open({})}
         title="Open with default options"
@@ -122,14 +122,14 @@ export function Repro() {
       <Button onPress={setup} title="Use FTS" disabled={!db} />
       <Button onPress={close} title="Close" disabled={!db} />
 
-      <View style={styles.container}>
+      <View>
         <Text>All Todos:</Text>
         {todos.map((row) => (
           <Text key={row.id}>- {row.value}</Text>
         ))}
       </View>
 
-      <View style={styles.container}>
+      <View>
         <Text>Todos matching world:</Text>
         {filteredTodos.map((row) => (
           <Text key={row.id}>- {row.value}</Text>
@@ -141,6 +141,6 @@ export function Repro() {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 8,
+    rowGap: 16,
   },
 });
